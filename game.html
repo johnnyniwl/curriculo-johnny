@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Interativo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        #quiz-container {
+            background: black;
+            border: 2px solid lime;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .matrix {
+            font-family: 'Courier New', monospace;
+            color: lime;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao meu Currículo Interativo</h1>
+    <button class="btn btn-success" id="start-quiz">Desafio do Dev 🚀</button>
+    
+    <div id="quiz-container" class="hidden mt-4">
+        <h2 class="matrix">Teste seus conhecimentos!</h2>
+        <p id="question" class="matrix"></p>
+        <button class="btn btn-outline-light answer" data-correct="false"></button>
+        <button class="btn btn-outline-light answer" data-correct="false"></button>
+        <button class="btn btn-outline-light answer" data-correct="true"></button>
+    </div>
+    
+    <div id="success-message" class="hidden matrix mt-4">
+        <h2>Parabéns, você desbloqueou o currículo secreto! 🎉</h2>
+        <a href="curriculo-secreto.html" class="btn btn-warning">Acesse Aqui</a>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "Qual linguagem é usada para estilizar páginas web?", a: ["JavaScript", "CSS", "PHP"], correct: 1 },
+            { q: "Qual símbolo é usado para indicar um ID no CSS?", a: ["#", ".", "@"], correct: 0 },
+            { q: "Qual dessas tecnologias é usada no front-end?", a: ["Node.js", "React", "MySQL"], correct: 1 }
+        ];
+        let currentQuestion = 0;
+        
+        $("#start-quiz").click(() => {
+            $("#start-quiz").hide();
+            $("#quiz-container").removeClass("hidden");
+            loadQuestion();
+        });
+        
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            $("#question").text(q.q);
+            $(".answer").each(function(index) {
+                $(this).text(q.a[index]);
+                $(this).data("correct", index === q.correct);
+            });
+        }
+        
+        $(".answer").click(function() {
+            if ($(this).data("correct")) {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    $("#quiz-container").hide();
+                    $("#success-message").removeClass("hidden");
+                }
+            } else {
+                alert("Ops! Tente novamente.");
+            }
+        });
+    </script>
+</body>
+</html>

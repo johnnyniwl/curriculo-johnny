@@ -6,6 +6,8 @@
     <title>Johnny Melo de Lucena - Desenvolvedor Web</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
             background-color: #0a0a0a;
@@ -71,6 +73,19 @@
                 padding-bottom: 20px;
             }
         }
+        .hidden {
+            display: none;
+        }
+        #quiz-container {
+            background: black;
+            border: 2px solid lime;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .matrix {
+            font-family: 'Courier New', monospace;
+            color: lime;
+        }
     </style>
 </head>
 <body>
@@ -131,8 +146,107 @@
                         <p class="experience-subtitle">Desenvolvedor Web - Presencial (2008 - 2011)</p>
                     </div>
                 </div>
+
+                <div class="section">
+
+                    <center><button class="btn btn-outline-light"  id="start-quiz">Desafio do Dev <small> | Desbloqueie o currículo secreto </small> 🎯 </button></center>
+        
+                    <div id="quiz-container" class="hidden mt-4">
+                        <h2 class="matrix">Teste seus conhecimentos!</h2>
+                        <p id="question" class="matrix"></p>
+                        <button class="btn btn-outline-light answer" data-correct="false"></button>
+                        <button class="btn btn-outline-light answer" data-correct="false"></button>
+                        <button class="btn btn-outline-light answer" data-correct="true"></button>
+                    </div>
+                    
+                    <div id="success-message" class="hidden matrix mt-4">
+                        <h2>Parabéns, você desbloqueou o currículo secreto! 🎉</h2>
+                        <!--<a href="curriculo-secreto.html" class="btn btn-outline-light">Acesse Aqui</a>-->
+                        <!--<p>
+                            🔥🏆 JOHNNY LUCENA – O CRAQUE DO CÓDIGO! 🏆🔥
+
+                            📢 "No futebol, cada passe conta. No desenvolvimento, cada linha de código faz a diferença!"
+
+                            💚⚽ O CAMISA 10 DO DEV TEAM 💚⚽
+                            Johnny Lucena não é apenas um programador, ele é o camisa 10 do time de tecnologia! Assim como um meia-armador que enxerga o jogo antes dos outros, Johnny antecipa problemas e entrega soluções com classe e precisão.
+
+                            🏟️ Final da Champions Tech League – O grande jogo começou! A empresa precisava de um sistema robusto e eficiente para gerenciar pagamentos via Pix, e os atacantes PHP, MySQL e Laravel estavam prontos para o jogo. Mas o time adversário, Bug FC, entrou em campo com retranca pesada: deadlines curtos, APIs instáveis e um código legado de dar medo!
+
+                            ⏳ Últimos minutos da prorrogação...
+                            Johnny recebe a bola (um projeto desafiador em PHP 5 que precisa ser atualizado para 8.2). Ele faz um drible elegante com refatoração de código, avança no campo com integração de APIs e, no último segundo...
+
+                            ⚡ GOLAÇO! O sistema entra no ar, sem bugs, sem erro 500, e com uma interface moderna! O cliente vibra, a torcida dos usuários comemora, e o troféu "Desenvolvedor do Ano" é garantido.
+
+                            🏅 Títulos conquistados pelo craque:
+                            ✅ Atualização de sistemas legados sem perder performance
+                            ✅ Criação de APIs eficientes e bem documentadas
+                            ✅ Integração de gateways de pagamento (Mercado Pago, PayPal, SuitPay, etc.)
+                            ✅ Desenvolvimento de aplicações seguras e escaláveis
+                            ✅ Suporte e manutenção com qualidade de campeão
+
+                            📢 "Um bom desenvolvedor não se faz apenas com código, mas com visão de jogo, adaptação e espírito de equipe!"
+
+                            🌟 Se o seu time precisa de um reforço de peso, chame Johnny Lucena. 🚀
+
+                            E aí, técnico (recrutador), bora contratar esse craque para o seu time? ⚽🔥😎
+                        </p>-->
+                        <div class="section">
+                            <h2>🏆 O Craque do Código 🏆</h2>
+                            <p>Johnny Lucena não é apenas um programador, ele é o <strong>camisa 10</strong> do time de tecnologia! Como um meia-armador que enxerga o jogo antes dos outros, Johnny antecipa problemas e entrega soluções com classe e precisão.</p>
+                            <p>⚽ **Final da Champions Tech League** – A empresa precisava de um sistema robusto e eficiente para gerenciar pagamentos via Pix, mas o time adversário, <strong>Bug FC</strong>, estava pronto para atrapalhar o jogo!</p>
+                            <p>⏳ **Últimos minutos da prorrogação...** Johnny recebe a bola (um projeto PHP 5 para 8.2), faz um drible elegante na refatoração de código, avança no campo e... ⚡ **GOLAÇO!** O sistema entra no ar, sem bugs, sem erro 500 e com uma interface moderna!</p>
+                            <p>🏅 **Títulos conquistados:**</p>
+                            <ul>
+                                <li>✅ Atualização de sistemas legados sem perder performance</li>
+                                <li>✅ Criação de APIs eficientes e bem documentadas</li>
+                                <li>✅ Integração de gateways de pagamento</li>
+                                <li>✅ Desenvolvimento de aplicações seguras e escaláveis</li>
+                            </ul>
+                            <p>🌟 **Se o seu time precisa de um reforço de peso, chame Johnny Lucena.** 🚀</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const questions = [
+            { q: "Qual linguagem é usada para estilizar páginas web?", a: ["JavaScript", "CSS", "PHP"], correct: 1 },
+            { q: "Qual símbolo é usado para indicar um ID no CSS?", a: ["#", ".", "@"], correct: 0 },
+            { q: "Qual dessas tecnologias é usada no front-end?", a: ["Node.js", "React", "MySQL"], correct: 1 }
+        ];
+        let currentQuestion = 0;
+        
+        $("#start-quiz").click(() => {
+            $("#start-quiz").hide();
+            $("#quiz-container").removeClass("hidden");
+            loadQuestion();
+        });
+        
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            $("#question").text(q.q);
+            $(".answer").each(function(index) {
+                $(this).text(q.a[index]);
+                $(this).data("correct", index === q.correct);
+            });
+        }
+        
+        $(".answer").click(function() {
+            if ($(this).data("correct")) {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    $("#quiz-container").hide();
+                    $("#success-message").removeClass("hidden");
+                }
+            } else {
+                alert("Ops! Tente novamente.");
+            }
+        });
+    </script>
+
 </body>
 </html>
