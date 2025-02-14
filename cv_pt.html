@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Melo de Lucena - Desenvolvedor Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+        }
+        .sidebar {
+            background: linear-gradient(180deg, #002200, #004400);
+            padding: 20px;
+            height: 100%;
+            color: #0f0;
+            border-right: 2px solid #0f0;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #0f0;
+            margin-bottom: 15px;
+        }
+        .container-content {
+            padding: 30px;
+        }
+        h1, h2 {
+            color: #0f0;
+            border-bottom: 2px solid #0f0;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .section {
+            background-color: rgba(0, 255, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0px 0px 10px #0f0;
+        }
+        .experience-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 3px solid #0f0;
+        }
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0f0;
+        }
+        .experience-subtitle {
+            font-size: 1rem;
+            color: #0a0;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #00ff00;
+            text-shadow: 0px 0px 5px #0f0;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <img src="me.jpeg" alt="Johnny Melo de Lucena" class="profile-pic">
+                <h2>Johnny Melo de Lucena</h2>
+                <p><strong>Desenvolvedor Web</strong></p>
+                <hr>
+                <h4><i class="bi bi-envelope"></i> Contato</h4>
+                <p><i class="bi bi-envelope"></i> androidsistemas@gmail.com</p>
+                <p><i class="bi bi-telephone"></i> +55 (82) 994158387</p>
+                <p><i class="bi bi-geo-alt"></i> Palmeira dos Índios - AL, Brasil</p>
+                <p><i class="bi bi-person"></i> Brasileiro</p>
+                <p><i class="bi bi-calendar"></i> 20/08/1985</p>
+                <hr>
+                <h4><i class="bi bi-book"></i> Educação</h4>
+                <p>Bacharelado em Ciência da Computação - UniAmérica/Descomplica (2024 - Presente)</p>
+                <p>Bacharelado em Meteorologia - UFAL (2006 - 2008)</p>
+                <hr>
+                <h4><i class="bi bi-tools"></i> Habilidades</h4>
+                <p>PHP, Laravel, Yii, CakePHP, Symfony, JavaScript, NodeJS, Python, Java, MySQL, PostgreSQL, MongoDB, HTML, CSS, jQuery, Bootstrap, Linux, AWS</p>
+                <hr>
+                <h4><i class="bi bi-globe"></i> Idiomas</h4>
+                <p>Português - Nativo</p>
+                <p>Inglês - B2</p>
+                <p>Espanhol - B1</p>
+            </div>
+            <div class="col-md-9 container-content">
+                <!-- <header>
+                    <h1>Experiência Profissional</h1>
+                </header> -->
+                <div class="section">
+                    <h2>Resumo</h2>
+                    <p>Um programador experiente com amplas habilidades técnicas em desenvolvimento web, incluindo uma sólida formação profissional trabalhando em empresas dedicadas à construção de sistemas ERP. Trabalhar como freelancer tem proporcionado oportunidades de aplicar conhecimentos em diversos projetos. Hábil em linguagens de programação como PHP e JavaScript, além de frameworks populares como Laravel e Yii2. A proficiência se estende a bancos de dados MySQL e PostgreSQL, ferramentas de controle de versão como Git, administração de sistema Linux e AWS.</p>
+                </div>
+                <div class="section">
+                    <h2>Experiência</h2>
+                    <div class="experience-item">
+                        <p class="experience-title">Workana</p>
+                        <p class="experience-subtitle">Desenvolvedor Web - Remoto (2017 - Presente)</p>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-title">Simples Controle</p>
+                        <p class="experience-subtitle">Desenvolvedor Web - Híbrido (2017 - 2019)</p>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-title">Jetdata Sistemas</p>
+                        <p class="experience-subtitle">Desenvolvedor Web - Presencial (2011 - 2016)</p>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-title">ID5/Timmy</p>
+                        <p class="experience-subtitle">Desenvolvedor Web - Presencial (2014)</p>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-title">Controlle10</p>
+                        <p class="experience-subtitle">Desenvolvedor Web - Presencial (2008 - 2011)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
